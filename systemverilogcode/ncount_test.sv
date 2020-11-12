@@ -24,9 +24,9 @@ module ncount_test();
 
 reg clk_t;
 reg rst_t;
-wire [1:0] msbs;
+wire [1:0] msbs_t;
 
-ncount #(.N(6)) dut (
+ncount #(.N(4)) dut (
     .clk(clk_t),
     .rst(rst_t),
     .msbs(msbs_t)
@@ -35,6 +35,17 @@ ncount #(.N(6)) dut (
 always begin
     clk_t = ~clk_t; #5;
     end 
+    
+initial begin
+    clk_t=1'b0; rst_t=1'b0; #5
+    rst_t=1'b1; #5
+    rst_t=1'b0; 
+    #200;
+    $finish;
+    end
+    
+    
+
 
 
 endmodule

@@ -30,7 +30,7 @@ module show2c(
     
     always @*
     if (Din[7])
-        Dout <= {8'b11111111, ~Din} + 1'b1;
+        Dout <= ~{8'b11111111,Din} + 1'b1;
     else
         Dout <= {8'b0, Din};
         
